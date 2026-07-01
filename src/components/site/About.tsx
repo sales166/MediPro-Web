@@ -14,7 +14,6 @@ export function About() {
     <section id="about" className="py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="About"
           title="About Medipro by PSI"
           subtitle="Excellence in Medical Supply Distribution"
         />
@@ -23,20 +22,27 @@ export function About() {
           <div className="relative">
             <div className="aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-primary/10 via-white to-accent/10 shadow-elegant">
               <div className="flex h-full flex-col items-center justify-center gap-6 p-10">
-                <LogoPlaceholder variant="primary" className="scale-125" />
+                <LogoPlaceholder variant="primary" imageClassName="h-20 sm:h-24" />
                 <div className="h-px w-24 bg-border" />
                 <div className="text-center">
                   <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
                     Division of
                   </div>
-                  <div className="mt-2 font-display text-lg font-bold">Projects and Supplies Investment LLC</div>
+                  <img
+                    src="/PSI%20LOGO%209-Photoroom%20(1).png"
+                    alt="Projects and Supplies Investment LLC"
+                    className="mx-auto mt-3 h-20 w-auto object-contain sm:h-24"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="mt-3 font-display text-lg font-bold">Projects and Supplies Investment LLC</div>
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 hidden rounded-2xl bg-primary px-6 py-5 text-primary-foreground shadow-elegant sm:block">
+            {/* <div className="absolute -bottom-6 -right-6 hidden rounded-2xl bg-primary px-6 py-5 text-primary-foreground shadow-elegant sm:block">
               <div className="text-2xl font-bold">A Decade+</div>
               <div className="text-xs uppercase tracking-wider opacity-90">Of Healthcare Service</div>
-            </div>
+            </div> */}
           </div>
 
           <div>
@@ -49,7 +55,7 @@ export function About() {
               </p>
               <p>
                 Our commitment to quality and service excellence has made us the preferred choice for healthcare
-                institutions seeking reliable medical equipment and supplies. We work with internationally recognized
+                institutions seeking reliable medical consumables and supplies. We work with internationally recognized
                 manufacturers to ensure that every product meets the highest standards of quality and safety.
               </p>
             </div>

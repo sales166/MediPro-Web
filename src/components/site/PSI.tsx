@@ -18,7 +18,7 @@ export function PSI() {
         <SectionHeading
           eyebrow="Parent Company"
           title="Projects and Supplies Investment LLC"
-          subtitle="Excellence in the Supply of Medical Consumables, Hardware, and Industrial Solutions in Oman"
+          subtitle="Excellence in the Supply of Hardware and Industrial Solutions in Oman"
         />
 
         <p className="mx-auto mt-6 max-w-3xl text-center text-base text-muted-foreground">

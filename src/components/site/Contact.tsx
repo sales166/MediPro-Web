@@ -28,6 +28,18 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>;
 
+const googleForm = {
+  actionUrl: import.meta.env.VITE_GOOGLE_FORM_ACTION_URL,
+  fields: {
+    name: import.meta.env.VITE_GOOGLE_FORM_ENTRY_NAME,
+    email: import.meta.env.VITE_GOOGLE_FORM_ENTRY_EMAIL,
+    phone: import.meta.env.VITE_GOOGLE_FORM_ENTRY_PHONE,
+    organization: import.meta.env.VITE_GOOGLE_FORM_ENTRY_ORGANIZATION,
+    inquiry: import.meta.env.VITE_GOOGLE_FORM_ENTRY_INQUIRY,
+    message: import.meta.env.VITE_GOOGLE_FORM_ENTRY_MESSAGE,
+  },
+};
+
 const inquiryTypes = [
   "Medical Supplies",
   "Equipment Inquiry",
@@ -42,8 +54,8 @@ const info = [
     title: "Address",
     lines: ["P.O Box: 111, Postal Code: 111", "Sultanate of Oman", "C.R No: 1571163"],
   },
-  { icon: Phone, title: "Phone", lines: ["+968 97409370"] },
-  { icon: Mail, title: "Email", lines: ["mediprobypsi@gmail.com"] },
+  { icon: Phone, title: "Phone", lines: ["+968 97409370", "+968 95405885"] },
+  { icon: Mail, title: "Email", lines: ["mediprobypsi@gmail.com","sales@psimedipro.com"] },
   {
     icon: Clock,
     title: "Working Hours",
@@ -67,19 +79,43 @@ export function Contact() {
 
   const inquiry = watch("inquiry");
 
-  const onSubmit = async (_values: FormValues) => {
+  const onSubmit = async (values: FormValues) => {
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 600));
-    toast.success("Message sent", { description: "We'll get back to you shortly." });
-    reset();
-    setSubmitting(false);
+
+    try {
+      if (!googleForm.actionUrl || Object.values(googleForm.fields).some((field) => !field)) {
+        throw new Error("Google Form is not configured");
+      }
+
+      const body = new FormData();
+      body.append(googleForm.fields.name, values.name);
+      body.append(googleForm.fields.email, values.email);
+      body.append(googleForm.fields.phone, values.phone);
+      body.append(googleForm.fields.organization, values.organization || "");
+      body.append(googleForm.fields.inquiry, values.inquiry);
+      body.append(googleForm.fields.message, values.message);
+
+      await fetch(googleForm.actionUrl, {
+        method: "POST",
+        mode: "no-cors",
+        body,
+      });
+
+      toast.success("Message sent", { description: "We'll get back to you shortly." });
+      reset();
+    } catch {
+      toast.error("Message not sent", {
+        description: "Please try again or email us directly at mediprobypsi@gmail.com.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
     <section id="contact" className="bg-muted/40 py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Contact"
           title="Get In Touch"
           subtitle="We're Here to Help Your Healthcare Facility"
         />

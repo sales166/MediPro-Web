@@ -14,10 +14,10 @@ export function Footer() {
     <footer className="border-t border-border bg-card">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3 lg:px-8">
         <div>
-          <LogoPlaceholder />
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+          <LogoPlaceholder imageClassName="h-20" />
+          <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
             Medipro by PSI – Medical Supply Division of PSI LLC. Your trusted partner for comprehensive healthcare
-            equipment and supplies across the Sultanate of Oman.
+            consumables and supplies across the Sultanate of Oman.
           </p>
         </div>
 

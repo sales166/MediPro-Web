@@ -12,9 +12,9 @@ import { SectionHeading } from "./SectionHeading";
 
 const categories = [
   { icon: Syringe, title: "Medical Consumables", desc: "Sterile supplies for daily clinical use." },
-  { icon: Stethoscope, title: "Healthcare Equipment", desc: "Reliable tools for diagnosis and care." },
-  { icon: HeartPulse, title: "Hospital Supplies", desc: "Comprehensive inventory for facilities." },
   { icon: Microscope, title: "Diagnostic Supplies", desc: "Lab and diagnostic essentials." },
+  { icon: HeartPulse, title: "Hospital Supplies", desc: "Comprehensive inventory for facilities." },
+  { icon: Stethoscope, title: "Healthcare Equipment", desc: "Reliable tools for diagnosis and care." },
   { icon: FileText, title: "Office Stationery", desc: "Stationery and admin supplies." },
   { icon: Wrench, title: "Industrial Hardware", desc: "Hardware and tooling solutions." },
   { icon: Wind, title: "MEP & HVAC Solutions", desc: "Mechanical and HVAC services." },
@@ -26,7 +26,6 @@ export function Products() {
     <section id="products" className="bg-muted/40 py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Solutions"
           title="Products & Solutions"
           subtitle="A complete supply portfolio for healthcare, commercial, and industrial sectors."
         />

@@ -3,7 +3,6 @@ import { ArrowRight, BadgeCheck, ShieldCheck, Truck, HeartPulse, Stethoscope, Sy
 import { Button } from "@/components/ui/button";
 
 const badges = [
-  { icon: ShieldCheck, label: "ISO Certified" },
   { icon: BadgeCheck, label: "Quality Assured" },
   { icon: Truck, label: "Fast Delivery" },
 ];
@@ -23,16 +22,16 @@ export function Hero() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col justify-center"
         >
-          <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-accent/30 bg-accent-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-foreground">
+          {/* <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-accent/30 bg-accent-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-foreground">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Trusted across Oman
-          </div>
+          </div> */}
           <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Your Trusted Partner in{" "}
             <span className="text-primary">Medical Supply</span> Solutions
           </h1>
           <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Delivering premium quality medical equipment and supplies to healthcare facilities across Oman.
+            Delivering premium quality medical consumables and supplies to healthcare facilities across Oman.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">

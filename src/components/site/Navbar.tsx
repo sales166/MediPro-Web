@@ -35,7 +35,7 @@ export function Navbar() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a href="#home" className="flex items-center" aria-label="Medipro by PSI home">
-          <LogoPlaceholder />
+          <LogoPlaceholder imageClassName="h-9 sm:h-10" />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
@@ -66,7 +66,7 @@ export function Navbar() {
             <SheetContent side="right" className="w-72">
               <SheetTitle className="sr-only">Menu</SheetTitle>
               <div className="mt-2 mb-6">
-                <LogoPlaceholder />
+                <LogoPlaceholder imageClassName="h-12" />
               </div>
               <nav className="flex flex-col gap-1" aria-label="Mobile">
                 {links.map((l) => (
