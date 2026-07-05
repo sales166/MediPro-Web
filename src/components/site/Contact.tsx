@@ -29,16 +29,32 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 const googleForm = {
-  actionUrl: import.meta.env.VITE_GOOGLE_FORM_ACTION_URL,
+  actionUrl:
+    import.meta.env.VITE_GOOGLE_FORM_ACTION_URL ||
+    "https://docs.google.com/forms/d/e/1FAIpQLSdXytsziS9SEJmzfPjYuYPuPHwVnZ_A_ypbdjoCwbiNgmcGrg/formResponse",
   fields: {
-    name: import.meta.env.VITE_GOOGLE_FORM_ENTRY_NAME,
-    email: import.meta.env.VITE_GOOGLE_FORM_ENTRY_EMAIL,
-    phone: import.meta.env.VITE_GOOGLE_FORM_ENTRY_PHONE,
-    organization: import.meta.env.VITE_GOOGLE_FORM_ENTRY_ORGANIZATION,
-    inquiry: import.meta.env.VITE_GOOGLE_FORM_ENTRY_INQUIRY,
-    message: import.meta.env.VITE_GOOGLE_FORM_ENTRY_MESSAGE,
+    name: import.meta.env.VITE_GOOGLE_FORM_ENTRY_NAME || "entry.174604404",
+    email: import.meta.env.VITE_GOOGLE_FORM_ENTRY_EMAIL || "entry.610060248",
+    phone: import.meta.env.VITE_GOOGLE_FORM_ENTRY_PHONE || "entry.1907447725",
+    organization: import.meta.env.VITE_GOOGLE_FORM_ENTRY_ORGANIZATION || "entry.358092696",
+    inquiry: import.meta.env.VITE_GOOGLE_FORM_ENTRY_INQUIRY || "entry.1783678968",
+    message: import.meta.env.VITE_GOOGLE_FORM_ENTRY_MESSAGE || "entry.223836519",
   },
 };
+
+function buildPrefillUrl(values: FormValues) {
+  const viewUrl = googleForm.actionUrl.replace("/formResponse", "/viewform");
+  const params = new URLSearchParams({
+    [googleForm.fields.name]: values.name,
+    [googleForm.fields.email]: values.email,
+    [googleForm.fields.phone]: values.phone,
+    [googleForm.fields.organization]: values.organization || "",
+    [googleForm.fields.inquiry]: values.inquiry,
+    [googleForm.fields.message]: values.message,
+  });
+
+  return `${viewUrl}?usp=pp_url&${params.toString()}`;
+}
 
 const inquiryTypes = [
   "Medical Supplies",
@@ -83,7 +99,15 @@ export function Contact() {
     setSubmitting(true);
 
     try {
-      if (!googleForm.actionUrl || Object.values(googleForm.fields).some((field) => !field)) {
+      const requiredFields = [
+        googleForm.fields.name,
+        googleForm.fields.email,
+        googleForm.fields.phone,
+        googleForm.fields.inquiry,
+        googleForm.fields.message,
+      ];
+
+      if (!googleForm.actionUrl || requiredFields.some((field) => !field)) {
         throw new Error("Google Form is not configured");
       }
 
@@ -104,8 +128,10 @@ export function Contact() {
       toast.success("Message sent", { description: "We'll get back to you shortly." });
       reset();
     } catch {
-      toast.error("Message not sent", {
-        description: "Please try again or email us directly at mediprobypsi@gmail.com.",
+      const prefillUrl = buildPrefillUrl(values);
+      window.open(prefillUrl, "_blank", "noopener,noreferrer");
+      toast.success("Google form opened", {
+        description: "Please review and submit the prefilled form in the new tab.",
       });
     } finally {
       setSubmitting(false);

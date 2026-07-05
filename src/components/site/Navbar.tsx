@@ -27,15 +27,15 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all",
+        "sticky top-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "border-b border-border bg-background/85 backdrop-blur-md shadow-[0_1px_0_0_rgb(0_0_0_/_0.02)]"
-          : "bg-background/60 backdrop-blur",
+          ? "border-b border-border/80 bg-background/88 shadow-[0_16px_50px_-42px_rgb(20_24_39_/_0.5)] backdrop-blur-xl"
+          : "border-b border-transparent bg-background/70 backdrop-blur-md",
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a href="#home" className="flex items-center" aria-label="Medipro by PSI home">
-          <LogoPlaceholder imageClassName="h-9 sm:h-10" />
+          <LogoPlaceholder imageClassName="h-10 sm:h-11" />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
@@ -43,7 +43,7 @@ export function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              className="relative text-sm font-semibold text-muted-foreground transition-colors after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-primary after:transition-all hover:text-foreground hover:after:w-full"
             >
               {l.label}
             </a>
@@ -51,7 +51,7 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:block">
-          <Button asChild size="sm" className="rounded-full px-5">
+          <Button asChild size="sm" className="rounded-full px-5 shadow-premium">
             <a href="#contact">Get in Touch</a>
           </Button>
         </div>
@@ -66,7 +66,7 @@ export function Navbar() {
             <SheetContent side="right" className="w-72">
               <SheetTitle className="sr-only">Menu</SheetTitle>
               <div className="mt-2 mb-6">
-                <LogoPlaceholder imageClassName="h-12" />
+                <LogoPlaceholder imageClassName="h-14" />
               </div>
               <nav className="flex flex-col gap-1" aria-label="Mobile">
                 {links.map((l) => (
@@ -74,12 +74,12 @@ export function Navbar() {
                     key={l.href}
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="rounded-md px-3 py-3 text-base font-medium text-foreground transition hover:bg-muted hover:text-primary"
+                    className="rounded-lg px-3 py-3 text-base font-semibold text-foreground transition hover:bg-muted hover:text-primary"
                   >
                     {l.label}
                   </a>
                 ))}
-                <Button asChild className="mt-4 rounded-full">
+                <Button asChild className="mt-4 rounded-full shadow-premium">
                   <a href="#contact" onClick={() => setOpen(false)}>
                     Get in Touch
                   </a>

@@ -8,6 +8,7 @@ import { Products } from "@/components/site/Products";
 import { Brands } from "@/components/site/Brands";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
+import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import { Toaster } from "@/components/ui/sonner";
 
 const title = "Medipro by PSI — Medical Supplies in Oman";
@@ -63,6 +64,7 @@ function Index() {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppFloat />
       <Toaster richColors position="top-right" />
     </div>
   );
