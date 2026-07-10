@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   BadgeCheck,
-  Building2,
   ShieldCheck,
   Truck,
 } from "lucide-react";
@@ -12,12 +11,6 @@ const badges = [
   { icon: BadgeCheck, label: "Certified Sourcing" },
   { icon: ShieldCheck, label: "Clinical-Grade Quality" },
   { icon: Truck, label: "Reliable Oman Delivery" },
-];
-
-const metrics = [
-  { value: "10+", label: "Years in healthcare supply" },
-  { value: "24/7", label: "Support for urgent needs" },
-  { value: "100+", label: "Happy Customers" },
 ];
 
 export function Hero() {
@@ -75,49 +68,15 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-          className="relative hidden lg:block"
-          aria-hidden
+          className="relative hidden lg:block mt-12 lg:mt-0"
         >
-          <div className="mx-auto w-full max-w-xl rounded-[2rem] border border-primary/15 bg-[linear-gradient(150deg,rgb(255_255_255),rgb(245_250_255)_46%,rgb(240_247_255))] p-6 text-foreground shadow-[0_28px_80px_-34px_rgb(20_24_39_/_0.28)]">
-            <div className="flex items-center justify-between border-b border-border/70 pb-5">
-              <img
-                src="/MediPro Logo.png"
-                alt="Medipro by PSI"
-                className="h-11 w-auto object-contain"
-                loading="eager"
-                decoding="async"
-              />
-              <div className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
-                Ready Stock
-              </div>
-            </div>
-
-            <div className="mt-5 grid grid-cols-2 gap-3">
-              <div className="rounded-xl border border-border/70 bg-white/80 p-3">
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <Building2 className="h-4 w-4" />
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.16em]">Healthcare</span>
-                </div>
-                <div className="mt-1 text-sm font-semibold text-foreground">Hospitals & Clinics</div>
-              </div>
-
-              <div className="rounded-xl border border-border/70 bg-white/80 p-3">
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <ShieldCheck className="h-4 w-4" />
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.16em]">Standards</span>
-                </div>
-                <div className="mt-1 text-sm font-semibold text-foreground">Vetted Suppliers</div>
-              </div>
-            </div>
-
-            <div className="mt-5 grid grid-cols-3 gap-2">
-              {metrics.map((item) => (
-                <div key={item.label} className="rounded-xl border border-primary/15 bg-primary/[0.08] px-3 py-3">
-                  <div className="text-lg font-bold leading-none text-primary">{item.value}</div>
-                  <div className="mt-1 text-[11px] font-medium leading-4 text-muted-foreground">{item.label}</div>
-                </div>
-              ))}
-            </div>
+          <div className="relative -top-16 mx-auto w-full max-w-xl overflow-hidden rounded-[2rem]">
+            <img
+              src="/Landing.png"
+              alt="MediPro Healthcare Solutions"
+              className="w-full h-auto rounded-[1.75rem] object-cover"
+              loading="eager"
+            />
           </div>
         </motion.div>
       </div>

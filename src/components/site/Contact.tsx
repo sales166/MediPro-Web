@@ -161,9 +161,32 @@ export function Contact() {
                     {title}
                   </div>
                   <div className="mt-1 space-y-0.5 text-sm text-foreground">
-                    {lines.map((l) => (
-                      <div key={l}>{l}</div>
-                    ))}
+                    {lines.map((l) => {
+                      if (title === "Phone") {
+                        const telValue = l.replace(/\s+/g, "");
+                        return (
+                          <a
+                            key={l}
+                            href={`tel:${telValue}`}
+                            className="block transition hover:text-primary"
+                          >
+                            {l}
+                          </a>
+                        );
+                      }
+                      if (title === "Email") {
+                        return (
+                          <a
+                            key={l}
+                            href={`mailto:${l}`}
+                            className="block transition hover:text-primary"
+                          >
+                            {l}
+                          </a>
+                        );
+                      }
+                      return <div key={l}>{l}</div>;
+                    })}
                   </div>
                 </div>
               </div>

@@ -41,16 +41,20 @@ export function Footer() {
           <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Contact</h4>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
-              <Phone className="mt-0.5 h-4 w-4 text-primary" />
-              +968 97409370
+              <Phone className="mt-0.5 h-4 w-4 text-primary shrink-0" />
+              <a href="tel:+96897409370" className="transition hover:text-primary">
+                +968 97409370
+              </a>
             </li>
             <li className="flex items-start gap-2">
-              <Mail className="mt-0.5 h-4 w-4 text-primary" />
-              mediprobypsi@gmail.com
+              <Mail className="mt-0.5 h-4 w-4 text-primary shrink-0" />
+              <a href="mailto:mediprobypsi@gmail.com" className="transition hover:text-primary">
+                mediprobypsi@gmail.com
+              </a>
             </li>
             <li className="flex items-start gap-2">
-              <MapPin className="mt-0.5 h-4 w-4 text-primary" />
-              P.O Box 111, Sultanate of Oman
+              <MapPin className="mt-0.5 h-4 w-4 text-primary shrink-0" />
+              <span>P.O Box 111, Sultanate of Oman</span>
             </li>
           </ul>
         </div>
