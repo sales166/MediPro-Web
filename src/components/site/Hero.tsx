@@ -37,7 +37,7 @@ export function Hero() {
             <span className="text-primary">modern healthcare</span>
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-            Medipro by PSI delivers certified consumables, equipment, and responsive procurement support to hospitals,
+            Medipro by PSI delivers certified consumables, disposable items, and responsive procurement support to hospitals,
             clinics, and healthcare teams across Oman.
           </p>
 
@@ -47,9 +47,9 @@ export function Hero() {
                 Get in Touch <ArrowRight className="ml-1.5 h-4 w-4" />
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full border-primary/20 bg-white/70 px-6 backdrop-blur hover:bg-white">
+            {/* <Button asChild size="lg" variant="outline" className="rounded-full border-primary/20 bg-white/70 px-6 backdrop-blur hover:bg-white">
               <a href="#brands">View Partner Companies</a>
-            </Button>
+            </Button> */}
           </div>
 
           <div className="mt-10 grid gap-3 sm:grid-cols-3">

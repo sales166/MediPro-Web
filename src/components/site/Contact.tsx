@@ -70,8 +70,8 @@ const info = [
     title: "Address",
     lines: ["P.O Box: 111, Postal Code: 111", "Sultanate of Oman", "C.R No: 1571163"],
   },
-  { icon: Phone, title: "Phone", lines: ["+968 97409370", "+968 95405885"] },
-  { icon: Mail, title: "Email", lines: ["mediprobypsi@gmail.com","sales@psimedipro.com"] },
+  { icon: Phone, title: "Phone", lines: ["+968 95089578", "+968 95405885"] },
+  { icon: Mail, title: "Email", lines: ["sales@psimedipro.com", "mediprobypsi@gmail.com"] },
   {
     icon: Clock,
     title: "Working Hours",

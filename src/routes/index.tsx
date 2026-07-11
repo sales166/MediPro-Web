@@ -35,8 +35,8 @@ export const Route = createFileRoute("/")({
           "@type": "Organization",
           name: "Medipro by PSI",
           legalName: "Projects and Supplies Investment LLC",
-          email: "mediprobypsi@gmail.com",
-          telephone: "+968 97409370",
+          email: "sales@psimedipro.com",
+          telephone: "+968 95089578",
           address: {
             "@type": "PostalAddress",
             postOfficeBoxNumber: "111",
